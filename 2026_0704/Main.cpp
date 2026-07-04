@@ -18,7 +18,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		DrawFormatString(75, 250, fontColor, "Just Do It");
 
 		ScreenFlip();
-
-		return 0;
 	}
+
+	return 0;
 }
