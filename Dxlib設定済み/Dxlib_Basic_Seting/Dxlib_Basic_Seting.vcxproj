@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collision.h" />
@@ -148,6 +149,10 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Dxlib_Basic_Seting.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

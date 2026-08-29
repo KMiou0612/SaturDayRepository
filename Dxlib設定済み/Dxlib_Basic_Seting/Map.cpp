@@ -1,6 +1,7 @@
 #include "Map.h"
 #include "Collision.h"
 #include "DxLib.h"
+#include <iostream>
 
 //============================================
 //コンストラクタ
@@ -176,13 +177,52 @@ bool Map::ResolveHorizontalCollision(float x, float& y, float width, float heigh
 			{
 				continue;
 			}
+
+			//=============================
+			// 衝突判定
+			//=============================
+
+			if (!Collision::IsHitRect(x, y, x + width, y + height, blockX, blockY, blockRight, blockBottom))
+			{
+				continue;
+			}
+
+			hit = true;
+
+			//=============================
+			// 下方向へ移動
+			//=============================
+
+			if (moveY > 0.0f)
+			{
+				y = blockY - height;
+			}
+
+			//=============================
+			// 上方向へ移動
+			//=============================
+
+			else
+			{
+				y = blockBottom;
+			}
 		}
 	}
 
-	//=============================
-	// 衝突判定
-	//=============================
+	return hit;
 
+}
 
+//=============================
+// ブロック種類取得
+//=============================
 
+unsigned char Map::GetBlockType(int ix, int iy) const
+{
+	if (ix < 0 || iy < 0 || ix >= Config::MAP_X_NUM || iy >= Config::MAP_Y_NUM)
+	{
+		return 0;
+	}
+
+	return map[iy][ix];
 }
